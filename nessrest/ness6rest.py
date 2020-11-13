@@ -664,7 +664,7 @@ class Scanner(object):
         text_targets = targets.replace(",", "\n")
 
         self.targets = targets.replace(",", " ")
-
+        self.description = description
         # Figure out scan name
         if name:
             self.scan_name = name
@@ -676,7 +676,7 @@ class Scanner(object):
 
         # Static items- some could be dynamic, but it's overkill
         settings.update({"launch": "ON_DEMAND"})
-        settings.update({"description": description})
+        settings.update({"description": str(self.description)})
         settings.update({"file_targets": ""})
         settings.update({"filters": []})
         settings.update({"emails": ""})
